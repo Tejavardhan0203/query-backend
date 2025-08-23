@@ -17,15 +17,6 @@ router.post('/', async (req, res) => {
   }
 })
 
-// List all (simple admin view - no auth in MVP)
-router.get('/', async (req, res) => {
-  try {
-    const list = await Query.find().sort({ createdAt: -1 })
-    res.json(list)
-  } catch (e) {
-    res.status(500).json({ error: e.message })
-  }
-})
 
 // Update status (admin)
 router.patch('/:id/status', async (req, res) => {
