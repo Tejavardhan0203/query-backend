@@ -7,7 +7,7 @@ const adminRoutes = require("./routes/admin")
 const cors=require("cors")
 
 const PORT=process.env.PORT || 3000
-connectDb()
+connectDb(process.env.CONNECTION_STRING)
 app.use(express.json())
 app.use(cors())
 
