@@ -6,11 +6,11 @@ const queryRoutes=require("./routes/sub")
 const adminRoutes = require("./routes/admin")
 const cors=require("cors")
 
-//const PORT=process.env.PORT || 3000
-const PORT=3000
+const PORT=process.env.PORT || 3000
+
 connectDb(process.env.CONNECTION_STRING)
 app.use(express.json())
-const allowedOrigins = ['http://localhost:3000', 'https://query-portal-frontend.vercel.app/']; // Add more origins as needed
+const allowedOrigins = ['http://localhost:5173', 'https://query-portal-frontend.vercel.app/']; // Add more origins as needed
 app.use(
     cors({
         origin: function (origin, callback) {
