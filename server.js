@@ -6,7 +6,8 @@ const queryRoutes=require("./routes/sub")
 const adminRoutes = require("./routes/admin")
 const cors=require("cors")
 
-const PORT=process.env.PORT || 3000
+//const PORT=process.env.PORT || 3000
+const PORT=3000
 connectDb(process.env.CONNECTION_STRING)
 app.use(express.json())
 app.use(cors())
