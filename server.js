@@ -10,7 +10,19 @@ const cors=require("cors")
 const PORT=3000
 connectDb(process.env.CONNECTION_STRING)
 app.use(express.json())
-app.use(cors())
+const allowedOrigins = ['http://localhost:3000', 'https://query-portal-frontend.vercel.app/']; // Add more origins as needed
+app.use(
+    cors({
+        origin: function (origin, callback) {
+            if (!origin || allowedOrigins.includes(origin)) {
+                callback(null, true);
+            } else {
+                callback(new Error('Not allowed by CORS'));
+            }
+        },
+        credentials: true, // Allow credentials
+    })
+);
 
 app.use("/queries", queryRoutes)
 app.use("/admin", adminRoutes)
